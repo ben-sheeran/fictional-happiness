@@ -1,5 +1,112 @@
-<!--#include virtual="stdhead.shtml" -->
-<div class="post">
-    
-</div>
-<!--#include virtual="stdfoot.shtml" -->
+<script src="../lib/tracery.js"></script>
+<script src="../lib/mousetrap.min.js"></script>
+<script src="../lib/jquery-1.11.1.min.js"></script>
+<h1>Text will go here</h1>
+<button onclick="generate()">Generate</button>
+<script>
+var grammarObj = {
+  "origin": [
+    "#[persona:#name#][personb:#name#]story#"
+  ],
+  "story": [
+    "#persona#/#personb#, #genre#\n #[chara:#persona#][charb:#personb#]plotsummary#"
+  ],
+  "name": [
+    "{fag}",
+    "{top}",
+    "{cum slut}",
+    "{seme}",
+    "{uke}",
+    "{sinner}",
+    "{sinner}",
+    "{sinner}", 
+    "{fag}",
+    "{faggot}",
+    "{pervert}",
+    "{cocksucker}",
+    "{bitch}",
+    "{trap}",
+    "{femenine man}",
+    "{fantasy man}",
+    "{flesh sack}",
+    "{walking corpse}",
+    "{prop}",
+    "{cock}",
+    "{phallus}",
+    "{faggot}",
+    "{pussy}"
+  ],
+  "tag": [
+    "coffee shop AU",
+    "flower shop AU",
+    "canon complient",
+    "slow burn",
+    "angst",
+    "Alternate canon",
+    "drabble",
+    "drama",
+    "fluff",
+    "friendship",
+    "hurt/comfort",
+    "kissing",
+    "firsts",
+    "marriage",
+    "romance",
+    "Smut",
+    "slash",
+    "sad",
+    "love",
+    "unrequited",
+    "soulmates",
+    "secrets",
+    "jealousy",
+    "one shot",
+    "historical",
+    "feels",
+    "omegaverse"
+  ],
+  "genre": [
+    "#tag#, #tag#, #tag#, #tag#",
+    "#tag#, #tag#, #tag#",
+    "#tag#, #tag#, #tag#, #tag#, #tag#, #tag#",
+    "#tag#, #tag#, #tag#, #tag#, #tag#"
+  ],
+  "plotsummary": [
+    "#chara# is a #job# and #charb# is a #job#. #plotelement#, and #plotelement#",
+    "in which #chara# is a former job and #charb# is a #job#. #plotelement#, and #plotelement#",
+    "#chara# has been pining for #charb# for years. #plotelement#, and #plotelement#",
+    "just a series of #chara#/#charb# drabbles. Enjoy!",
+    "#chara# is a #job# and #charb# is a #job#. Together, they #plotelement#",
+    "#chara# and #charb# have been friends since childhood. #plotelement#",
+    "#chara# and #charb# are classmates. #plotelement#, and #plotelement#",
+    "all #chara# has ever dreamed of is #charb#'s affections. A story of love lost and found."
+
+  ],
+  "job": [
+    "firefighter",
+    "spy",
+    "florist",
+    "baker",
+    "teacher",
+    "mobster",
+    "vampire",
+    "chef",
+    "student",
+    "office worker",
+    "barista"
+  ],
+  "plotelement" : [
+    "just might be able to weather this storm",
+    "all they have is each other",
+    "shenanigans ensue",
+    "the unbelievable happens",
+    "learn how to love again",
+    "find a family"
+  ]
+}
+var grammar = tracery.createGrammar(grammarObj)
+function generate(){
+	var t = grammar.flatten("#S#");
+	$('h1').text(t);
+}
+</script>
