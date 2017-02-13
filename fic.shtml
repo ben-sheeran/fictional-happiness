@@ -1,7 +1,7 @@
 <script src="https://ben-sheeran.github.io/fictional-happiness/lib/tracery.js"></script>
 <script src="https://ben-sheeran.github.io/fictional-happiness/lib/mousetrap.min.js"></script>
 <script src="https://ben-sheeran.github.io/fictional-happiness/lib/jquery-1.11.1.min.js"></script>
-<h1>Text will go here</h1>
+<h1>Hey! TW for homophobic slurs and sexual content!</h1>
 <button onclick="generate()">Generate</button>
 <script>
 var grammarObj = {
@@ -9,7 +9,7 @@ var grammarObj = {
     "#[persona:#name#][personb:#name#]story#"
   ],
   "story": [
-    "#persona#/#personb#, #genre#\n #[chara:#persona#][charb:#personb#]plotsummary#"
+    "<p>#persona#/#personb#, #genre#</p> <p>#[chara:#persona#][charb:#personb#]plotsummary#</p>"
   ],
   "name": [
     "{fag}",
