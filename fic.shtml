@@ -106,7 +106,7 @@ var grammarObj = {
 }
 var grammar = tracery.createGrammar(grammarObj)
 function generate(){
-	var t = grammar.flatten("#S#");
+	var t = grammar.flatten("#origin#");
 	$('h1').text(t);
 }
 </script>
