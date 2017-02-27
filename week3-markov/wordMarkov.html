@@ -2,10 +2,8 @@
 <script src="../lib/markov.js"></script>
 <script>
 var txt;
-var markov = new MarkovGeneratorWord(3,400)
+var markov = new MarkovGeneratorWord(2,400)
 $.get("fast-food.txt", function(text) {
-     markov.feed(text);
-     markov.feed(text);
      markov.feed(text);
      markov.feed(text);
      markov.feed(text);
