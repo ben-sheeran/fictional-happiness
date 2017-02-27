@@ -2,11 +2,11 @@
 <script src="../lib/markov.js"></script>
 <script>
 var txt;
-var markov = new MarkovGeneratorWord(3,50)
-$.get("sherlock.txt", function(text) {
+var markov = new MarkovGeneratorWord(3,400)
+$.get("fast-food.txt", function(text) {
      markov.feed(text);
 });
-$.get("thebigsleep.txt", function(text) {
+$.get("siggraph-corpus.txt", function(text) {
      markov.feed(text);
 });
 function generate(){
