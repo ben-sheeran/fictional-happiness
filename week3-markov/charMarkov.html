@@ -2,8 +2,8 @@
 <script src="../lib/markov.js"></script>
 <script>
 var txt;
-var markov = new MarkovGenerator(4,200)
-$.get("etdukkehjem.txt", function(text) {
+var markov = new MarkovGenerator(4,150)
+$.get("infowars.txt", function(text) {
      markov.feed(text);
 });
 function generate(){
