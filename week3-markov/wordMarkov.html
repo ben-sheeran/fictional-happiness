@@ -5,6 +5,11 @@ var txt;
 var markov = new MarkovGeneratorWord(3,400)
 $.get("fast-food.txt", function(text) {
      markov.feed(text);
+     markov.feed(text);
+     markov.feed(text);
+     markov.feed(text);
+     markov.feed(text);
+
 });
 $.get("siggraph-corpus.txt", function(text) {
      markov.feed(text);
