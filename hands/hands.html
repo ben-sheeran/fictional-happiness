@@ -45,6 +45,25 @@ body {
 	</video>
 </div>
 
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
+<script>
+function voiceStartCallback() {
+    console.log("Voice started");
+}
+ 
+function voiceEndCallback() {
+    console.log("Voice ended");
+}
+ 
+var parameters = {
+    onstart: voiceStartCallback,
+    onend: voiceEndCallback
+}
+ 
+responsiveVoice.speak("Hello, this is a test using callbacks","UK English Female", parameters);
+</script>
+
 </body>
 
 </html>
