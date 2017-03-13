@@ -1,69 +1,59 @@
-<!DOCTYPE html>
-<html class="full" lang="en">
-<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
-
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>sigmund freud has ten thousand hands</title>
-
-    <style>
-body {
-    background-color: linen;
-    overflow: hidden;
+<script src="../lib/jquery-1.11.1.min.js"></script>
+<script src="../lib/mousetrap.min.js"></script>
+<script src="parachute.js"></script>
+<style>
+@font-face {
+	font-family: Oxygen;
+	src:url("oxygen-regular.ttf");
 }
-.videoContainer 
-{
-    position:absolute;
-    height:100%;
-    width:100%;
-    overflow: hidden;
-}
+html { 
 
-.videoContainer video 
-{
-    min-width: 100%;
-    min-height: 100%;
-}max-height: 100%;
-} 
+  overflow: hidden;
+}
+#textHerePlz{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40vh;
+	width: 80%;
+	font-family: 'Oxygen', sans-serif;
+	color: goldenrod;
+	text-shadow: 2px 3px #222;
+	font-size: 0.95vw;
+}
+#introText {
+	color: goldenrod;
+	text-shadow: 2px 3px #222;
+}
+.line {
+	position: relative;
+	margin-top: -18px;
+	font-size: 2.35em;
+}
+video {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(bleh.jpg) no-repeat;
+background-size: cover;
+}
 </style>
-
 </head>
-
 <body>
-
-<div class="videoContainer">
-
-    <video autoplay loop>
-  		<source src="freud.mp4" type="video/mp4">
-		on arorikya sowaka
-	</video>
-</div>
-
-<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
-
-<script>
-function voiceStartCallback() {
-    console.log("Voice started");
-}
- 
-function voiceEndCallback() {
-    console.log("Voice ended");
-}
- 
-var parameters = {
-    onstart: voiceStartCallback,
-    onend: voiceEndCallback
-}
- 
-responsiveVoice.speak("Hello, this is a test using callbacks","UK English Female", parameters);
-</script>
-
+<video loop id="bgvid">
+<source src="freud.mp4" type="video/mp4">
+</video>
+<div id="textHerePlz">
+<h1 id="introText">sigmund freud has ten thousand hands</h1>
+</div>;
+<span id="bottom"></span>
 </body>
-
 </html>
