@@ -60,40 +60,42 @@ line16: function (){
 line17: function (){
 	showText("given my dialectical worksheets and meditation guides.")
 },
-
 line18: function (){
+	showText("They do not speak of my rainbow body,")
+},
+line19: function (){
 	showText("or of Kannon's infinite compassion,")
 },
 
-line19: function (){
+line20: function (){
 	showText("of the diamond or of the womb.")
 },
 
-line20: function (){
+line21: function (){
 	showText("If I am diligent in my secular studies, I wonder,")
 },
-line21: function (){
+line22: function (){
 	showText("will I receive ten thousand hands?")
 },
-line22: function (){
+line23: function (){
 	showText("<br>That night I rewrite the poems written for my ex boyfriend,")
 },
 
-line23: function (){
+line24: function (){
 	showText("combine them with my medication info sheets,")
 },
 
-line24: function (){
+line25: function (){
 	showText("because aestheticizing my pain seems like an artsy thing to do")
 },
 
-line25: function (){
+line26: function (){
 	showText("and I've run out of ways to tell him he's hurt me.")
 },
-line26: function (){
+line27: function (){
 	showText("<br>I write a new sutra professing my love.")
 },
-line27: function (){
+line28: function (){
 	showText("I keep the wound agape.")
 }
 }
