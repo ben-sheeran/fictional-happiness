@@ -8,7 +8,7 @@ h1 {
 	margin-top: 5%;
 }
 html { 
-  background: url(sadDolphin.gif) no-repeat center center; 
+  background: url(bgr.jpg) no-repeat center center; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -30,6 +30,7 @@ Mousetrap.bind("space", function(){
 	if(linecount + 1 > words.length) {
 		return;
 	}
+	playIt(linecount);
 	if(linecount == 0) {
 		showText2(words[linecount] + " ");
 		linecount++;
