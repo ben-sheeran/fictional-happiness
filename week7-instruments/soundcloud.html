@@ -20,9 +20,9 @@ html {
 <script>
 
 
-var source = "yeah dude check out my ep on soundcloud its like kinda like merzbow or sunn o))) but with chillwave influences my handle is ａｔａｒｉ　１９９７ -- yeah, thats it, the one with the anime girl -- i dont do live shows tho, but if you wanna catch me later hmu but I have to be home by 8 cause my stepdad ron needs the car to go to rotary club tomorrow morning :/ ps do u vape";
+var source = "yeah dude# check out my ep on# soundcloud# its like kinda like# merzbow# or# sunn o)))# but with# chillwave# influences# my handle is# ａｔａｒｉ　１９９７ #-- yeah, thats it,# the one with# the anime girl icon# --# i dont do live shows tho,# but if you wanna catch me later heres# my number# but I have to be home by 8 cause# my stepdad ron# needs the car# to go to rotary club tomorrow morning# :/# ps do u vape";
 
-var words = source.split(" ");
+var words = source.split("#");
 
 var linecount  = 0;
 
@@ -31,7 +31,7 @@ Mousetrap.bind("space", function(){
 		return;
 	}
 	if(linecount == 0) {
-		showText2(words[linecount]);
+		showText2(words[linecount] + " ");
 		linecount++;
 	} else {
 		$('#mainText').append(words[linecount]+" ");
