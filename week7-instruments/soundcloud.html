@@ -27,6 +27,9 @@ var words = source.split(" ");
 var linecount  = 0;
 
 Mousetrap.bind("space", function(){
+	if(linecount > words.length) {
+		return;
+	}
 	if(linecount == 0) {
 		showText2(words[linecount]);
 		linecount++;
@@ -38,7 +41,7 @@ Mousetrap.bind("space", function(){
 
 //show multiple lines of text
 function showText (text){
-    $('#textDiv').append("<h1>"+text+"</h1>");
+    $('#textDiv').append(text+" ");
     //scrolls to the bottom
     $('#bottom')[0].scrollIntoView(false);
 
