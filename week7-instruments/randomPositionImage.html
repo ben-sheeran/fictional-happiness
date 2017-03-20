@@ -1,0 +1,30 @@
+<script src="../lib/jquery-1.11.1.min.js"></script>
+<script src="../lib/mousetrap.min.js"></script>
+<script>
+Mousetrap.bind("space", function(){
+	placeRandom()
+	$('h1').remove();
+})
+
+function placeRandom(){
+		var x = getRandomInt(0,80)
+		var y = getRandomInt(0,85)
+		//turns x and y from numbers into text
+		x = x.toString() + "%"
+		y = y.toString() + "%"
+		//the code below will remove all of the chosen element, in this case svg, and put in a new one. 
+		$('img').remove()
+		//dont be too concerned with the svg itself
+		$('body').append('<img width="300" src="sadDolphin.gif" style="position: absolute; left:'+x+'; top:'+y+'">')
+		//you could also just move an existing SVG round with something like
+		//$('img').css({left: x, top: y})
+}
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+</script>
+<h1>Press Space to see dolphins cry</h1>
+
+
+
+
