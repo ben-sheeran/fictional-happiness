@@ -34,7 +34,7 @@ Mousetrap.bind("space", function(){
 		showText2(words[linecount]);
 		linecount++;
 	} else {
-		showText(words[linecount]);
+		$('#mainText').append(text+" ");
 		linecount++;
 	}
 })
