@@ -20,14 +20,14 @@ html {
 <script>
 
 
-var source = "yeah dude# check out my ep on# soundcloud# its like kinda like# merzbow# or# sunn o)))# but with# chillwave# influences# my handle is# ａｔａｒｉ　１９９７ #-- yeah, thats it,# the one with# the anime girl icon# --# i dont do live shows tho,# but if you wanna catch me later heres# my number# but I have to be home by 8 cause# my stepdad ron# needs the car# to go to rotary club tomorrow morning# :/# ps do u vape";
+var source = "yeah dude# check out my ep on# soundcloud# its like kinda like# merzbow# or# sunn o)))# but with# chillwave# influences my handle is# ａｔａｒｉ　１９９７ #-- yeah, thats it,# the one with# the anime girl icon# --# i dont do live shows tho,# but if you wanna catch me later heres# my number# but I have to be home by 8 cause# my stepdad ron# needs the car# to go to rotary club tomorrow morning# :/# ps do u vape";
 
 var words = source.split("#");
 
 var linecount  = 0;
 
 Mousetrap.bind("space", function(){
-	if(linecount > words.length) {
+	if(linecount + 1 > words.length) {
 		return;
 	}
 	if(linecount == 0) {
@@ -38,6 +38,34 @@ Mousetrap.bind("space", function(){
 		linecount++;
 	}
 })
+
+
+function playIt(count) {
+	//masculine
+	if(count == 0) {
+		playSound("masc")
+	}
+	//soundcloud
+	if(count == 2) {
+
+	} 
+	//merzbow
+	else if(count == 4) {
+
+	}
+	//sunn
+	else if(count == 6) {
+
+	}
+	//chillwave
+	else if(count == 8) {
+
+	}
+	//atari
+	else if(count == 10) {
+
+	}
+}
 
 //show multiple lines of text
 function showText (text){
@@ -108,9 +136,16 @@ function setTextColor(color){
     $('html').css('color', color)
 }
 </script>
-<audio id="heart" src="heartbeat.mp3" preload="auto"></audio>
-<audio id="boom" src="explosion1.mp3" preload="auto"></audio>
-<audio id="sax" src="SFSax03.mp3" preload="auto"></audio>
+<audio id="anime" src="anime.mp3" preload="auto"></audio>
+<audio id="atari" src="atari.mp3" preload="auto"></audio>
+<audio id="hmu" src="hmu.mp3" preload="auto"></audio>
+<audio id="ron" src="ron.mp3" preload="auto"></audio>
+<audio id="sunn" src="sunn.mp3" preload="auto"></audio>
+<audio id="vape" src="vape.mp3" preload="auto"></audio>
+<audio id="chillwave" src="chillwave.ogg" preload="auto"></audio>
+<audio id="noise" src="noise.ogg" preload="auto"></audio>
+<audio id="masc" src="masc.wav" preload="auto"></audio>
+<audio id="soundcloud" src="soundcloud.wav" preload="auto"></audio>
 <div id="textDiv">
 <h1>press space my dude</h1>
 </div>
