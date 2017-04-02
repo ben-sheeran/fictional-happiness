@@ -27,7 +27,6 @@
 
 		<div id="info">
 		<a href="http://threejs.org" target="_blank">three.js</a> - procedural 3D text by <a href="http://www.lab4games.net/zz85/blog" target="_blank">zz85</a> &amp; alteredq
-		<br/>built-in shape triangulation has been replaced with <a href="https://github.com/jahting/pnltri.js">PnlTri.js</a> by <a href="https://github.com/jahting" target="_blank">j ahting</a>
 		<br/>type to enter new text, drag to spin the text
 		<br/><span class="button" id="color">change color</span>,
 			<span class="button" id="font">change font</span>,
@@ -36,41 +35,12 @@
 			<a id="permalink" href="#">permalink</a>
 		</div>
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
 
-		<script src="../build/three.js"></script>
-		<script src="js/utils/GeometryUtils.js"></script>
+		<script src="Three.js"></script>
+		<script src="GeometryUtils.js"></script>
 
-		<script src="js/Detector.js"></script>
-		<script src="js/libs/stats.min.js"></script>
-
-
-		<!-- replace built-in triangulation with PnlTri.js -->
-		<script src="js/libs/pnltri.min.js"></script>
-		<script>
-			THREE.ShapeUtils.triangulateShape = ( function () {
-				var pnlTriangulator = new PNLTRI.Triangulator();
-				function removeDupEndPts(points) {
-
-					var l = points.length;
-
-					if ( l > 2 && points[ l - 1 ].equals( points[ 0 ] ) ) {
-
-						points.pop();
-
-					}
-
-				}
-
-				return function triangulateShape( contour, holes ) {
-					// console.log("new Triangulation: PnlTri.js " + PNLTRI.REVISION );
-
-					removeDupEndPts( contour );
-					holes.forEach( removeDupEndPts );
-
-					return pnlTriangulator.triangulate_polygon( [ contour ].concat(holes) );
-				};
-			} )();
-		</script>
+		<script src="Detector.js"></script>
 
 		<script>
 
@@ -86,7 +56,7 @@
 
 			var firstLetter = true;
 
-			var text = "PnlTri",
+			var text = "three.js",
 
 				height = 20,
 				size = 70,
@@ -241,7 +211,6 @@
 
 				// STATS
 
-				stats = new Stats();
 				//container.appendChild( stats.dom );
 
 				// EVENTS
@@ -568,7 +537,6 @@
 				requestAnimationFrame( animate );
 
 				render();
-				stats.update();
 
 			}
 
