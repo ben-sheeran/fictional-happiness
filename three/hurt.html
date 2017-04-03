@@ -39,7 +39,7 @@
 
 		<script src="Three.js"></script>
 		<script src="GeometryUtils.js"></script>
-
+		<script src="FirstPersonControls.js"></script>
 		<script src="Detector.js"></script>
 
 		<script>
@@ -223,21 +223,6 @@
 
 				// EVENTS
 
-				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-				document.addEventListener( 'keypress', onDocumentKeyPress, false );
-				document.addEventListener( 'keydown', onDocumentKeyDown, false );
-
-				document.getElementById( "color" ).addEventListener( 'click', function() {
-
-					pointLight.color.setHSL( Math.random(), 1, 0.5 );
-					hex = decimalToHex( pointLight.color.getHex() );
-
-					updatePermalink();
-
-				}, false );
-
 				document.getElementById( "font" ).addEventListener( 'click', function() {
 
 					fontIndex ++;
@@ -310,52 +295,8 @@
 
 			}
 
-			function onDocumentKeyDown( event ) {
-
-				// if ( firstLetter ) {
-
-				// 	firstLetter = false;
-				// 	text = "";
-
-				// }
-
-				// var keyCode = event.keyCode;
-
-				// // backspace
-
-				// if ( keyCode == 8 ) {
-
-				// 	event.preventDefault();
-
-				// 	text = text.substring( 0, text.length - 1 );
-				// 	refreshText();
-
-				// 	return false;
-
-				// }
-
-			}
-
-			function onDocumentKeyPress( event ) {
-
-				var keyCode = event.which;
-
-				// backspace
-
-				if ( keyCode == 8 ) {
-
-					event.preventDefault();
-
-				} else {
-
-					// var ch = String.fromCharCode( keyCode );
-					// text += ch;
-
-					// refreshText();
-
-				}
-
-			}
+			
+			
 
 			function loadFont() {
 
@@ -477,68 +418,6 @@
 
 			}
 
-			function onDocumentMouseDown( event ) {
-
-				event.preventDefault();
-
-				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-				document.addEventListener( 'mouseup', onDocumentMouseUp, false );
-				document.addEventListener( 'mouseout', onDocumentMouseOut, false );
-
-				// mouseXOnMouseDown = event.clientX - windowHalfX;
-				// targetRotationOnMouseDown = targetRotation;
-
-			}
-
-			function onDocumentMouseMove( event ) {
-
-				// mouseX = event.clientX - windowHalfX;
-
-				// targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
-
-			}
-
-			function onDocumentMouseUp( event ) {
-
-				document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-				document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-				document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-
-			}
-
-			function onDocumentMouseOut( event ) {
-
-				document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
-				document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
-				document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-
-			}
-
-			function onDocumentTouchStart( event ) {
-
-				if ( event.touches.length == 1 ) {
-
-					event.preventDefault();
-
-					// mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-					// targetRotationOnMouseDown = targetRotation;
-
-				}
-
-			}
-
-			function onDocumentTouchMove( event ) {
-
-				if ( event.touches.length == 1 ) {
-
-					event.preventDefault();
-
-					// mouseX = event.touches[ 0 ].pageX - windowHalfX;
-					// targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-
-				}
-
-			}
 
 			//
 
