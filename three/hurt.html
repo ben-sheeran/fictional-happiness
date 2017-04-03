@@ -227,40 +227,6 @@
 
 				// EVENTS
 
-				document.getElementById( "font" ).addEventListener( 'click', function() {
-
-					fontIndex ++;
-
-					fontName = reverseFontMap[ fontIndex % reverseFontMap.length ];
-
-					loadFont();
-
-				}, false );
-
-
-				document.getElementById( "weight" ).addEventListener( 'click', function() {
-
-					if ( fontWeight === "bold" ) {
-
-						fontWeight = "regular";
-
-					} else {
-
-						fontWeight = "bold";
-
-					}
-
-					loadFont();
-
-				}, false );
-
-				document.getElementById( "bevel" ).addEventListener( 'click', function() {
-
-					bevelEnabled = !bevelEnabled;
-
-					refreshText();
-
-				}, false );
 
 				//
 
