@@ -150,7 +150,7 @@
 				// SCENE
 
 				scene = new THREE.Scene();
-				//scene.fog = new THREE.Fog( 0x000000, 250, 1400 );
+				scene.fog = new THREE.Fog( 0x000000, 250, 1400 );
 
 				// LIGHTS
 
@@ -166,32 +166,32 @@
 
 				var hash = document.location.hash.substr( 1 );
 
-				if ( hash.length !== 0 ) {
+				// if ( hash.length !== 0 ) {
 
-					var colorhash  = hash.substring( 0, 6 );
-					var fonthash   = hash.substring( 6, 7 );
-					var weighthash = hash.substring( 7, 8 );
-					var bevelhash  = hash.substring( 8, 9 );
-					var texthash   = hash.substring( 10 );
+				// 	var colorhash  = hash.substring( 0, 6 );
+				// 	var fonthash   = hash.substring( 6, 7 );
+				// 	var weighthash = hash.substring( 7, 8 );
+				// 	var bevelhash  = hash.substring( 8, 9 );
+				// 	var texthash   = hash.substring( 10 );
 
-					hex = colorhash;
-					pointLight.color.setHex( parseInt( colorhash, 16 ) );
+				// 	hex = colorhash;
+				// 	pointLight.color.setHex( parseInt( colorhash, 16 ) );
 
-					fontName = reverseFontMap[ parseInt( fonthash ) ];
-					fontWeight = reverseWeightMap[ parseInt( weighthash ) ];
+				// 	fontName = reverseFontMap[ parseInt( fonthash ) ];
+				// 	fontWeight = reverseWeightMap[ parseInt( weighthash ) ];
 
-					bevelEnabled = parseInt( bevelhash );
+				// 	bevelEnabled = parseInt( bevelhash );
 
-					text = decodeURI( texthash );
+				// 	text = decodeURI( texthash );
 
-					updatePermalink();
+				// 	updatePermalink();
 
-				} else {
+				// } else {
 
 					pointLight.color.setHSL( Math.random(), 1, 0.5 );
 					hex = decimalToHex( pointLight.color.getHex() );
 
-				}
+				//}
 
 				material = new THREE.MultiMaterial( [
 					new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } ), // front
@@ -220,13 +220,13 @@
 				// loadFont(locations[9],0,locations[9],"I am so scared of you.");
 				// loadFont(locations[10],0,locations[10],"a part of it is easy sometimes. One last night I'll take something. I deserve that. do I deserve you? You are of the past, the perfect; you were the one to cut me to death. I want nothing to be okay, forcing calm down to the depths. I am not enough. my eyes cannot bear it. all of me is your fault for I am a fragile insecure obsession. I know the death I want to be easy. But it cannot always be.");
 
-				var plane = new THREE.Mesh(
-					new THREE.PlaneBufferGeometry( 10000, 10000 ),
-					new THREE.MeshBasicMaterial( { color: 0xffffff, opacity: 0.5, transparent: true } )
-				);
-				plane.position.y = 100;
-				plane.rotation.x = - Math.PI / 2;
-				scene.add( plane );
+				// var plane = new THREE.Mesh(
+				// 	new THREE.PlaneBufferGeometry( 10000, 10000 ),
+				// 	new THREE.MeshBasicMaterial( { color: 0xffffff, opacity: 0.5, transparent: true } )
+				// );
+				// plane.position.y = 100;
+				// plane.rotation.x = - Math.PI / 2;
+				// scene.add( plane );
 
 				// RENDERER
 
