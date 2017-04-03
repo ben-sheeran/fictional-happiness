@@ -26,13 +26,7 @@
 	<body>
 
 		<div id="info">
-		<a href="http://threejs.org" target="_blank">three.js</a> - procedural 3D text by <a href="http://www.lab4games.net/zz85/blog" target="_blank">zz85</a> &amp; alteredq
-		<br/>type to enter new text, drag to spin the text
-		<br/><span class="button" id="color">change color</span>,
-			<span class="button" id="font">change font</span>,
-			<span class="button" id="weight">change weight</span>,
-			<span class="button" id="bevel">change bevel</span>
-			<a id="permalink" href="#">permalink</a>
+			<h4>wasd to move, mouse to pan camera</h4>
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
@@ -227,40 +221,14 @@
 
 				// EVENTS
 
-				document.getElementById( "font" ).addEventListener( 'click', function() {
 
-					fontIndex ++;
+				// document.getElementById( "bevel" ).addEventListener( 'click', function() {
 
-					fontName = reverseFontMap[ fontIndex % reverseFontMap.length ];
+				// 	bevelEnabled = !bevelEnabled;
 
-					loadFont();
+				// 	refreshText();
 
-				}, false );
-
-
-				document.getElementById( "weight" ).addEventListener( 'click', function() {
-
-					if ( fontWeight === "bold" ) {
-
-						fontWeight = "regular";
-
-					} else {
-
-						fontWeight = "bold";
-
-					}
-
-					loadFont();
-
-				}, false );
-
-				document.getElementById( "bevel" ).addEventListener( 'click', function() {
-
-					bevelEnabled = !bevelEnabled;
-
-					refreshText();
-
-				}, false );
+				// }, false );
 
 				//
 
@@ -309,8 +277,6 @@
 
 					font = response;
 
-					refreshText();
-
 				} );
 
 			}
@@ -348,17 +314,17 @@
 				group.add( textMesh1 );
 			}
 
-			function refreshText() {
+			// function refreshText() {
 
-				updatePermalink();
+			// 	updatePermalink();
 
-				group.remove( textMesh1 );
-				if ( mirror ) group.remove( textMesh2 );
+			// 	group.remove( textMesh1 );
+			// 	if ( mirror ) group.remove( textMesh2 );
 
-				if ( !text ) return;
+			// 	if ( !text ) return;
 
-				genText(0,0,0,"saaa")
-			}
+			// 	// genText(0,0,0,"saaa")
+			// }
 
 
 			//
