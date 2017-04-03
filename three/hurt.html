@@ -203,9 +203,7 @@
 
 				scene.add( group );
 
-				loadFont();
-
-				genText(0,0,0,"saaa")
+				loadFont(0,0,0,"a test");
 
 				var plane = new THREE.Mesh(
 					new THREE.PlaneBufferGeometry( 10000, 10000 ),
@@ -223,6 +221,14 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 
+				// STATS
+
+				//container.appendChild( stats.dom );
+
+				// EVENTS
+
+
+				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
@@ -262,12 +268,16 @@
 			
 			
 
-			function loadFont() {
+			function loadFont(x,y,z,str) {
 
 				var loader = new THREE.FontLoader();
 				loader.load( 'fonts/' + fontName + '_' + fontWeight + '.typeface.json', function ( response ) {
 
 					font = response;
+
+					//refreshText();
+					genText(x,y,z,str)
+
 
 				} );
 
@@ -306,17 +316,17 @@
 				group.add( textMesh1 );
 			}
 
-			// function refreshText() {
+			function refreshText() {
 
-			// 	updatePermalink();
+				updatePermalink();
 
-			// 	group.remove( textMesh1 );
-			// 	if ( mirror ) group.remove( textMesh2 );
+				group.remove( textMesh1 );
+				if ( mirror ) group.remove( textMesh2 );
 
-			// 	if ( !text ) return;
+				if ( !text ) return;
 
-			// 	// genText(0,0,0,"saaa")
-			// }
+				// genText(0,0,0,"saaa")
+			}
 
 
 			//
