@@ -215,22 +215,8 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 
-				// STATS
-
-				//container.appendChild( stats.dom );
-
-				// EVENTS
-
-
-				// document.getElementById( "bevel" ).addEventListener( 'click', function() {
-
-				// 	bevelEnabled = !bevelEnabled;
-
-				// 	refreshText();
-
-				// }, false );
-
-				//
+				genText(0,0,0,"hello")
+				genText(100,0,100,"bleh")
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
@@ -282,7 +268,7 @@
 			}
 
 			function genText(x,y,z,str) {
-								textGeo = new THREE.TextGeometry( str, {
+				textGeo = new THREE.TextGeometry( str, {
 
 					font: font,
 
