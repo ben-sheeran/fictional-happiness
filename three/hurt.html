@@ -139,7 +139,7 @@
 				// cameraTarget = new THREE.Vector3( 0, 150, 0 );
 
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20000 );
-
+				camera.position.y = 10;
 				controls = new THREE.FirstPersonControls( camera );
 
 				controls.movementSpeed = 1000;
