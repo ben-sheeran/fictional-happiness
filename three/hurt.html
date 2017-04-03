@@ -130,10 +130,19 @@
 
 				// CAMERA
 
-				camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1500 );
-				camera.position.set( 0, 400, 700 );
+				// camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1500 );
+				// camera.position.set( 0, 400, 700 );
 
-				cameraTarget = new THREE.Vector3( 0, 150, 0 );
+				// cameraTarget = new THREE.Vector3( 0, 150, 0 );
+
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20000 );
+				camera.position.y = getY( worldHalfWidth, worldHalfDepth ) * 100 + 100;
+
+				controls = new THREE.FirstPersonControls( camera );
+
+				controls.movementSpeed = 1000;
+				controls.lookSpeed = 0.125;
+				controls.lookVertical = true;
 
 				// SCENE
 
@@ -278,6 +287,8 @@
 
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
+				controls.handleResize();
+
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
@@ -544,7 +555,8 @@
 
 				//group.rotation.y += ( targetRotation - group.rotation.y ) * 0.05;
 
-				camera.lookAt( cameraTarget );
+				//camera.lookAt( cameraTarget );
+				controls.update( clock.getDelta() );
 
 				renderer.clear();
 				renderer.render( scene, camera );
