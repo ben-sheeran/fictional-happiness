@@ -148,12 +148,13 @@
 
 				// LIGHTS
 
-				// var dirLight = new THREE.DirectionalLight( 0xffffff, 0.225 );
-				// dirLight.position.set( 0, 0, 1 ).normalize();
-				// scene.add( dirLight );
+				var dirLight = new THREE.DirectionalLight( 0x404040, 0.225 );
+				dirLight.position.set( 0, -.5, 1 ).normalize();
+				scene.add( dirLight );
 
-				var light = new THREE.AmbientLight( 0x404040 ); // soft white light
-				scene.add( light );
+				var dirLight2 = new THREE.DirectionalLight( 0x404040, 0.225 );
+				dirLight2.position.set( 1, -.5, -1 ).normalize();
+				scene.add( dirLight2 );
 
 				// var pointLight = new THREE.PointLight( 0xffffff, 1.5 );
 				// pointLight.position.set( 1000, 100, -500 );
