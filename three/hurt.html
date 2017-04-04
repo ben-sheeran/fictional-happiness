@@ -107,7 +107,7 @@
 
 			var fontIndex = 1;
 
-			var loaded = [false];
+			var loaded = [false,false,false,false,false,false,false,false,false,false,false];
 
 
 			init();
@@ -372,6 +372,12 @@
 				if(camera.position.x > -1 && !loaded[0]) {
 					loadFont(1000,0,-500,"I want you to know I am the accumulation of hurt.");
 					loaded[0] = true;
+				}
+
+				if(camera.position.x > 1100 && !loaded[1]) {
+					group.remove( textMesh1 );
+					loadFont(3000,0,-500,"The last few days I make it fucked and you to let me burn because I need the trauma. I hope I cannot be mad.");
+					loaded[1] = true;
 				}
 
 				renderer.clear();
