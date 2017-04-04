@@ -107,7 +107,7 @@
 
 			var fontIndex = 1;
 
-			var loaded = false;
+			var loaded = [false];
 
 
 			init();
@@ -369,9 +369,9 @@
 				// loadFont(locations[10],0,locations[10],"a part of it is easy sometimes. One last night I'll take something. I deserve that. do I deserve you? You are of the past, the perfect; you were the one to cut me to death. I want nothing to be okay, forcing calm down to the depths. I am not enough. my eyes cannot bear it. all of me is your fault for I am a fragile insecure obsession. I know the death I want to be easy. But it cannot always be.");
 
 
-				if(camera.position.x > -1 && !loaded) {
+				if(camera.position.x > -1 && !loaded[0]) {
 					loadFont(1000,0,-500,"I want you to know I am the accumulation of hurt.");
-					loaded = true;
+					loaded[0] = true;
 				}
 
 				renderer.clear();
