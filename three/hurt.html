@@ -26,13 +26,7 @@
 	<body>
 
 		<div id="info">
-		<a href="http://threejs.org" target="_blank">three.js</a> - procedural 3D text by <a href="http://www.lab4games.net/zz85/blog" target="_blank">zz85</a> &amp; alteredq
-		<br/>type to enter new text, drag to spin the text
-		<br/><span class="button" id="color">change color</span>,
-			<span class="button" id="font">change font</span>,
-			<span class="button" id="weight">change weight</span>,
-			<span class="button" id="bevel">change bevel</span>
-			<a id="permalink" href="#">permalink</a>
+			<h4>mouse to move camera</h4>
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
@@ -326,7 +320,7 @@
 				textMesh1.position.z = z;
 
 				textMesh1.rotation.x = 0;
-				textMesh1.rotation.y = 0;
+				textMesh1.rotation.y = Math.PI * 2.5f;
 
 				group.add( textMesh1 );
 			}
