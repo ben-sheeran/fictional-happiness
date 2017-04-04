@@ -137,14 +137,14 @@
 				camera.position.x = 200;
 				controls = new THREE.FirstPersonControls( camera );
 
-				controls.movementSpeed = 100;
+				controls.movementSpeed = 300;
 				controls.lookSpeed = 0.1;
 				controls.lookVertical = false;
 
 				// SCENE
 
 				scene = new THREE.Scene();
-				scene.fog = new THREE.Fog( 0x000000, 250, 1400 );
+				scene.fog = new THREE.Fog( 0x000000, 250, 10000 );
 
 				// LIGHTS
 
@@ -153,7 +153,7 @@
 				scene.add( dirLight );
 
 				var pointLight = new THREE.PointLight( 0xffffff, 1.5 );
-				pointLight.position.set( 0, 100, 90 );
+				pointLight.position.set( 1000, 100, -500 );
 				scene.add( pointLight );
 
 				// Get text from hash
