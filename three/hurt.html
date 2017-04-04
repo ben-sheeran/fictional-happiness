@@ -148,13 +148,13 @@
 
 				// LIGHTS
 
-				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
+				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.225 );
 				dirLight.position.set( 0, 0, 1 ).normalize();
 				scene.add( dirLight );
 
-				var pointLight = new THREE.PointLight( 0xffffff, 1.5 );
-				pointLight.position.set( 1000, 100, -500 );
-				scene.add( pointLight );
+				// var pointLight = new THREE.PointLight( 0xffffff, 1.5 );
+				// pointLight.position.set( 1000, 100, -500 );
+				// scene.add( pointLight );
 
 				// Get text from hash
 
@@ -182,8 +182,8 @@
 
 				// } else {
 
-					pointLight.color.setHSL( Math.random(), 1, 0.5 );
-					hex = decimalToHex( pointLight.color.getHex() );
+					// pointLight.color.setHSL( Math.random(), 1, 0.5 );
+					// hex = decimalToHex( pointLight.color.getHex() );
 
 				//}
 
@@ -203,7 +203,7 @@
             	}
 
 				loadFont(1000,0,-500,"I want you to know I am the accumulation of hurt.");
-				// loadFont(locations[1],0,locations[1],"The last few days I make it fucked and you to let me burn because I need the trauma. I hope I cannot be mad.");
+				loadFont(3000,0,-500,"The last few days I make it fucked and you to let me burn because I need the trauma. I hope I cannot be mad.");
 				// loadFont(locations[2],0,locations[2],"You are miserable and I have failed.");
 				// loadFont(locations[3],0,locations[3],"So many insecurities, and I’ll bear doing a part of my fuck up. I am so scared of little hurts. How can i do this. There i was, definitely for a while; how insecure and able your eyes were. Staying forever to figure every relation and reason, I try and you don't trust me. But I’ll stay with you to be hated. ");
 				// loadFont(locations[4],0,locations[4],"I am so tired.");
