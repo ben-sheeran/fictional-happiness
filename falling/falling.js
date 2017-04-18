@@ -4,20 +4,20 @@ function preload() {
   song = loadSound('sounds/drone.ogg');
 }
 
-var NUMSINES = 20; // how many of these things can we do at once?
+var NUMSINES = 5; // how many of these things can we do at once?
 var sines = new Array(NUMSINES); // an array to hold all the current angles
 var rad; // an initial radius value for the central sine
 var i; // a counter variable
 
 // play with these to get a sense of what's going on:
 var fund = 0.005; // the speed of the central sine
-var ratio = 1; // what multiplier for speed is each additional sine?
+var ratio = .1; // what multiplier for speed is each additional sine?
 var alpha = 50; // how opaque is the tracing system
 
 var trace = false; // are we tracing?
 
 function setup() {
-  createCanvas(710, 400);
+  createCanvas(1000, 1000);
 	song.loop();
   rad = height/4; // compute radius for central circle
   background(204); // clear the screen
