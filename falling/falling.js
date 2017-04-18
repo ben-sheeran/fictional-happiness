@@ -1,124 +1,63 @@
 var song;
 
 function preload() {
-  song = loadSound('sounds/bonbon2.ogg');
+  song = loadSound('drone.ogg');
 }
 
-//asteroid clone (core mechanics only)
-//arrow keys to move + x to shoot
+var NUMSINES = 20; // how many of these things can we do at once?
+var sines = new Array(NUMSINES); // an array to hold all the current angles
+var rad; // an initial radius value for the central sine
+var i; // a counter variable
 
-var bullets;
-var asteroids;
-var ship;
-var shipImage, bulletImage, particleImage;
-var MARGIN = 40;
+// play with these to get a sense of what's going on:
+var fund = 0.005; // the speed of the central sine
+var ratio = 1; // what multiplier for speed is each additional sine?
+var alpha = 50; // how opaque is the tracing system
+
+var trace = false; // are we tracing?
 
 function setup() {
-createCanvas(800,600);
+  createCanvas(710, 400);
+	song.loop();
+  rad = height/4; // compute radius for central circle
+  background(204); // clear the screen
 
-bulletImage = loadImage("assets/asteroids_bullet.png");
-shipImage = loadImage("assets/asteroids_ship0001.png");
-particleImage = loadImage("assets/asteroids_particle.png");
-  song.loop(); // song is ready to play during setup() because it was loaded during preload
-ship = createSprite(width/2, height/2);
-ship.maxSpeed = 6;
-ship.friction = .98;
-ship.setCollider("circle", 0,0, 20);
-
-ship.addImage("normal", shipImage);
-ship.addAnimation("thrust", "assets/asteroids_ship0002.png", "assets/asteroids_ship0007.png");
-
-asteroids = new Group();
-bullets = new Group();
-
-for(var i = 0; i<8; i++) {
-  var ang = random(360);
-  var px = width/2 + 1000 * cos(radians(ang));
-  var py = height/2+ 1000 * sin(radians(ang));
-  createAsteroid(3, px, py);
+  for (var i = 0; i<sines.length; i++) {
+    sines[i] = PI; // start EVERYBODY facing NORTH
   }
 }
 
 function draw() {
-  background(0);
-  
-  fill(255);
-  textAlign(CENTER);
-  text("Controls: Arrow Keys + X", width/2, 20);
-  
-  for(var i=0; i<allSprites.length; i++) {
-  var s = allSprites[i];
-  if(s.position.x<-MARGIN) s.position.x = width+MARGIN;
-  if(s.position.x>width+MARGIN) s.position.x = -MARGIN;
-  if(s.position.y<-MARGIN) s.position.y = height+MARGIN;
-  if(s.position.y>height+MARGIN) s.position.y = -MARGIN;
-  }
-  
-  asteroids.overlap(bullets, asteroidHit);
-  
-  ship.bounce(asteroids);
-  
-  if(keyDown(LEFT_ARROW))
-    ship.rotation -= 4;
-  if(keyDown(RIGHT_ARROW))
-    ship.rotation += 4;
-  if(keyDown(UP_ARROW))
-    {
-    ship.addSpeed(.2, ship.rotation);
-    ship.changeAnimation("thrust");
+  if (!trace) {
+    background(204); // clear screen if showing geometry
+    stroke(0, 255); // black pen
+    noFill(); // don't fill
+  } 
+
+  // MAIN ACTION
+  push(); // start a transformation matrix
+  translate(width/2, height/2); // move to middle of screen
+
+  for (var i = 0; i<sines.length; i++) {
+    var erad = 0; // radius for small "point" within circle... this is the 'pen' when tracing
+    // setup for tracing
+    if (trace) {
+      stroke(0, 0, 255*(float(i)/sines.length), alpha); // blue
+      fill(0, 0, 255, alpha/2); // also, um, blue
+      erad = 5.0*(1.0-float(i)/sines.length); // pen width will be related to which sine
     }
-  else
-    ship.changeAnimation("normal");
-    
-  if(keyWentDown("x"))
-    {
-    var bullet = createSprite(ship.position.x, ship.position.y);
-    bullet.addImage(bulletImage);
-    bullet.setSpeed(10+ship.getSpeed(), ship.rotation);
-    bullet.life = 30;
-    bullets.add(bullet);
-    }
-  
-  drawSprites();
-  
-}
-
-function createAsteroid(type, x, y) {
-  var a = createSprite(x, y);
-  var img  = loadImage("assets/asteroid"+floor(random(0,3))+".png");
-  a.addImage(img);
-  a.setSpeed(2.5-(type/2), random(360));
-  a.rotationSpeed = .5;
-  //a.debug = true;
-  a.type = type;
-  
-  if(type == 2)
-    a.scale = .6;
-  if(type == 1)
-    a.scale = .3;
-  
-  a.mass = 2+a.scale;
-  a.setCollider("circle", 0, 0, 50);
-  asteroids.add(a);
-  return a;
-}
-
-function asteroidHit(asteroid, bullet) {
-var newType = asteroid.type-1;
-
-if(newType>0) {
-  createAsteroid(newType, asteroid.position.x, asteroid.position.y);
-  createAsteroid(newType, asteroid.position.x, asteroid.position.y);
+    var radius = rad/(i+1); // radius for circle itself
+    rotate(sines[i]); // rotate circle
+    if (!trace) ellipse(0, 0, radius*2, radius*2); // if we're simulating, draw the sine
+    push(); // go up one level
+    translate(0, radius); // move to sine edge
+    if (!trace) ellipse(0, 0, 5, 5); // draw a little circle
+    if (trace) ellipse(0, 0, erad, erad); // draw with erad if tracing
+    pop(); // go down one level
+    translate(0, radius); // move into position for next sine
+    sines[i] = (sines[i]+(fund+(fund*i*ratio)))%TWO_PI; // update angle based on fundamental
   }
-
-for(var i=0; i<10; i++) {
-  var p = createSprite(bullet.position.x, bullet.position.y);
-  p.addImage(particleImage);
-  p.setSpeed(random(3,5), random(360));
-  p.friction = 0.95;
-  p.life = 15;
-  }
-
-bullet.remove();
-asteroid.remove();
+  
+  pop(); // pop down final transformation
+  
 }
