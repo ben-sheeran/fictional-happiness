@@ -1,7 +1,7 @@
 var song;
 
 function preload() {
-  song = loadSound('drone.ogg');
+  song = loadSound('sounds/drone.ogg');
 }
 
 var NUMSINES = 20; // how many of these things can we do at once?
