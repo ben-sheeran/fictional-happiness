@@ -3,7 +3,7 @@ var song;
 
 function preload() {
   // Load a sound file
-  song = loadSound('assets/Damscray_DancingTiger.mp3');
+  song = loadSound('sounds/love.ogg');
 }
 
 function setup() {
