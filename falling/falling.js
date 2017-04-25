@@ -44,8 +44,8 @@ function setup() {
 
   currFreq = 20;
 
-    noise = loadSound('noise.ogg');
-
+  noise = loadSound('noise.ogg');
+  noise.play();
 
   fft = new p5.FFT();
   noStroke();
@@ -61,7 +61,7 @@ function keyTyped() {
     noise.play();
     return;
   }
-  
+
   if(noise.isPlaying()) {
     noise.stop();
   }
