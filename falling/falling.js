@@ -1,5 +1,7 @@
 var envelope, fft;
 
+var noise;
+
 var currFreq;
 
 var oscArray = [new p5.SinOsc(),new p5.SinOsc(),new p5.SinOsc(),new p5.SinOsc(),new p5.SinOsc()];
@@ -42,21 +44,30 @@ function setup() {
 
   currFreq = 20;
 
+    noise = loadSound('noise.ogg');
+
+
   fft = new p5.FFT();
   noStroke();
 }
 
 function keyTyped() {
-  if(key === ' ') {
-    chordIndex = (chordIndex + 1) %12;
-    return;
-  }
   if(keyCode === ENTER) {
     oscArray[0].stop();
     oscArray[1].stop();
     oscArray[2].stop();
     oscArray[3].stop();
     oscArray[4].stop();
+    noise.play();
+    return;
+  }
+  
+  if(noise.isPlaying()) {
+    noise.stop();
+  }
+  if(key === ' ') {
+    chordIndex = (chordIndex + 1) %12;
+    return;
   }
   var note = Math.floor(Math.random() * 5);
   var base = progBase[chordIndex];
