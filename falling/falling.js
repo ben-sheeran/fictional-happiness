@@ -1,8 +1,5 @@
 var envelope, fft;
 
-var noise;
-
-var currFreq;
 
 var oscArray = [new p5.SinOsc(),new p5.SinOsc(),new p5.SinOsc(),new p5.SinOsc(),new p5.SinOsc()];
 
@@ -42,44 +39,47 @@ function setup() {
   oscIndex = 0;  
   chordIndex = 0;
 
-  currFreq = 20;
-
-  noise = loadSound('noise.ogg');
-  noise.play();
 
   fft = new p5.FFT();
   noStroke();
 }
 
 function keyTyped() {
-  if(keyCode === ENTER) {
+  if(keyCode === ENTER || key === '`') {
     oscArray[0].stop();
     oscArray[1].stop();
     oscArray[2].stop();
     oscArray[3].stop();
     oscArray[4].stop();
-    noise.play();
-    return;
-  }
-
-  if(noise.isPlaying()) {
-    noise.stop();
-  }
-  if(key === ' ') {
     chordIndex = (chordIndex + 1) %12;
-    return;
+    var base = progBase[chordIndex];
+    var midiValue = base - 12;
+    var freqValue = midiToFreq(midiValue);
+    var osc = oscArray[oscIndex]
+    osc.freq(freqValue);
+    osc.start();
+    oscIndex = (oscIndex + 1)%5;
+  } else {
+  if(Math.random() > .9) {
+    chordIndex = (chordIndex + 1) %12;
   }
+    if(Math.random() > .4) {
+      return;
+    }
   var note = Math.floor(Math.random() * 5);
   var base = progBase[chordIndex];
   var ch = progTypes[chordIndex];
   var midiValue = base + ch[note] - 12 + 12 * Math.floor(Math.random() * 3);
   var freqValue = midiToFreq(midiValue);
-  currFreq += freqValue;
   var osc = oscArray[oscIndex]
   osc.freq(freqValue);
   osc.start();
 
   oscIndex = (oscIndex + 1)%5;
-  oscArray[oscIndex].stop();
+  oscArray[oscIndex].stop();    
+
+  }
+
+  
 }
 
