@@ -217,19 +217,10 @@
 
 				var intensity = 70000;
 
-				var light = new THREE.PointLight( 0xffaa55, intensity );
-				light.position.set( - 200, 100, 100 );
-				light.physicalAttenuation = true;
-				scene.add( light );
 
-				var light = new THREE.PointLight( 0x55aaff, intensity );
-				light.position.set( 200, 100, 100 );
-				light.physicalAttenuation = true;
-				scene.add( light );
-
-				var light = new THREE.PointLight( 0xffffff, intensity * 1.5 );
+				var light = new THREE.RectAreaLight( 0xffffff, intensity * 1.5, 2, 10);
 				light.position.set( 0, 0, 300 );
-				light.physicalAttenuation = true;
+				light.decay = 2;
 				scene.add( light );
 
 			}
