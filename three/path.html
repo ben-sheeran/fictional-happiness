@@ -215,10 +215,12 @@
 
 				// light
 
+				var intensity = 70000;
 
-				var light = new THREE.SpotLight( 0xffffff);
-				//light.position.set( 0, 0, 300 );
-				light.decay = 2;
+
+				var light = new THREE.PointLight( 0xffffff, intensity * 1.5 );
+				light.position.set( 0, 0, 300 );
+				light.physicalAttenuation = true;
 				scene.add( light );
 
 			}
