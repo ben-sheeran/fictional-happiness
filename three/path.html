@@ -215,11 +215,9 @@
 
 				// light
 
-				var intensity = 70000;
 
-
-				var light = new THREE.RectAreaLight( 0xffffff, intensity * 1.5, 2, 10);
-				light.position.set( 0, 0, 300 );
+				var light = new THREE.SpotLight( 0xffffff);
+				//light.position.set( 0, 0, 300 );
 				light.decay = 2;
 				scene.add( light );
 
