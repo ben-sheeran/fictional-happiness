@@ -135,7 +135,7 @@
 				// geometries
 
 				//var torusGeometry = new THREE.TorusKnotGeometry( 150 );
-				var sphereGeometry = new THREE.SphereGeometry( 100, 16, 8 );
+				var octaGeo = new THREE.OctahedronGeometry( 100, 16, 8 );
 				var planeGeometry = new THREE.BoxGeometry( 600, 5, 600 );
 				//var boxGeometry = new THREE.BoxGeometry( 100, 100, 100 );
 
@@ -146,7 +146,7 @@
 
 				// Sphere
 
-				sphere = new THREE.Mesh( sphereGeometry, phongMaterial );
+				sphere = new THREE.Mesh( octaGeo, phongMaterial );
 				sphere.scale.multiplyScalar( 0.5 );
 				sphere.position.set( - 50, - 250 + 5, - 50 );
 				scene.add( sphere );
